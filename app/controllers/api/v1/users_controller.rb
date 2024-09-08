@@ -1,4 +1,6 @@
 class Api::V1::UsersController < ApplicationController
+  before_action :set_user, only: [:update_email_and_password]
+
   def create
     user = User.new(user_params)
     
@@ -19,6 +21,22 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: { error: 'Wallet not found' }, status: :not_found
     end
+  end
+
+  def update_email_and_password
+    if @user.update(email_password_params)
+      render json: { success: true, message: 'User updated successfully' }, status: :ok
+    else
+      render json: { success: false, errors: @user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def set_user
+    @user = User.find(params[:user_id]) # Find user by ID
+  end
+
+  def email_password_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
   def user_params

@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      # User route
+      resources :users, only: [] do
+        collection do
+          post 'update_email_password/:user_id', to: 'users#update_email_and_password'
+          get 'get_balance/:user_id', to: 'users#get_balance'
+        end
+      end
+
       # Wallet routes
       post 'wallets/get_balance', to: 'wallets#get_balance'
       

@@ -8,8 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # Seed Users
-user1 = User.create(name: "John Doe")
-user2 = User.create(name: "Jane Doe")
+user1 = User.create(name: "John Doe", email:"john.doe@email.com", password:"supersecretpassword")
+user2 = User.create(name: "Jane Doe", email:"jane.doe@email.com", password:"supersecretpassword")
 
 # Seed Teams
 team1 = Team.create(name: "Alpha Team")
