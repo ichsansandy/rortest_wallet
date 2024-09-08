@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       # Wallet routes
+      post 'wallets/get_balance', to: 'wallets#get_balance'
       
       # Transaction routes
       resources :transactions, only: [] do
