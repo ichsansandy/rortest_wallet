@@ -1,4 +1,5 @@
 class Api::V1::WalletsController < ApplicationController
+  before_action :authorize_request
   before_action :validate_owner_type, only: :get_balance
 
   def get_balance

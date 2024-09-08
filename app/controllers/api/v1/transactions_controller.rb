@@ -1,4 +1,5 @@
 class Api::V1::TransactionsController < ApplicationController
+  before_action :authorize_request
   before_action :set_source_wallet, only: :debit
   before_action :set_target_wallet, only: :credit
   before_action :set_wallets_for_transfer, only: :transfer
