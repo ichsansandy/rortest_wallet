@@ -10,7 +10,9 @@ class WalletTransactionService
   end
 
   def self.debit(source_wallet, amount)
-    raise ActiveRecord::RecordInvalid, "Insufficient funds" if source_wallet.balance < amount
+    if source_wallet.balance < amount
+      raise StandardError, "Insufficient funds"
+    end
 
     ActiveRecord::Base.transaction do
       Transaction.create!(

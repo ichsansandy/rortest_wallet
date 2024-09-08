@@ -31,7 +31,7 @@ class Api::V1::TransactionsController < ApplicationController
     begin
       WalletTransactionService.transfer(@source_wallet, @target_wallet, amount)
       render json: { success: true, message: "Transfer successful" }, status: :ok
-    rescue ActiveRecord::RecordInvalid => e
+    rescue StandardError => e
       render json: { success: false, message: e.message }, status: :unprocessable_entity
     end
   end
