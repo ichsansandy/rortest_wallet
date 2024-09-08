@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_08_032202) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_08_061328) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,7 +31,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_08_032202) do
     t.bigint "source_wallet_id"
     t.bigint "target_wallet_id"
     t.string "transaction_type"
-    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["source_wallet_id"], name: "index_transactions_on_source_wallet_id"
