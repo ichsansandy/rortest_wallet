@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      # User routes
-      resources :users, only: [:create] do
-        collection do
-          get 'get_balance/:user_id', to: 'users#get_balance'
-        end
-      end
+      # Wallet routes
       
       # Transaction routes
       resources :transactions, only: [] do
