@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# Seed Users
+user1 = User.create(name: "John Doe")
+user2 = User.create(name: "Jane Doe")
+
+# Seed Teams
+team1 = Team.create(name: "Alpha Team")
+team2 = Team.create(name: "Beta Team")
+
+# Seed Stocks
+stock1 = Stock.create(name: "Tesla")
+stock2 = Stock.create(name: "Apple")
+
+puts "Seed data created successfully!"
