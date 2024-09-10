@@ -9,5 +9,10 @@ FactoryBot.define do
         create(:credit, target_wallet: wallet, amount: 130.0)
       end
     end
+    trait :for_trx_service do
+      after(:create) do |wallet|
+        create(:credit, target_wallet: wallet, amount: 100.0)
+      end
+    end
   end
 end
