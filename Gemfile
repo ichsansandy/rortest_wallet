@@ -48,6 +48,8 @@ group :test do
   gem 'rspec-rails'
   gem 'webmock' # For mocking external API requests
   gem 'vcr'     # Optional, for recording API responses
+  gem 'shoulda-matchers', '~> 4.0'
+  gem 'factory_bot_rails'
 end
 
 
