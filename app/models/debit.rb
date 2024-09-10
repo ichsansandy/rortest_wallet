@@ -12,5 +12,6 @@ class Debit < Transaction
   def validate_debit
     errors.add(:target_wallet, "must be nil for a debit") if target_wallet.present?
     errors.add(:source_wallet, "must be present for a debit") if source_wallet.blank?
+    errors.add(:amount, "cannot be greater than the source wallet's balance") if amount > source_wallet.balance
   end
 end
