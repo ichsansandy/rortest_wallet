@@ -9,4 +9,10 @@ class Api::V1::SessionsController < ApplicationController
       render json: { error: 'Invalid email or password' }, status: :unauthorized
     end
   end
+
+  private
+
+  def session_params
+    params.permit(:email, :password)
+  end
 end
