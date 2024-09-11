@@ -9,6 +9,7 @@ RSpec.describe Api::V1::TransactionsController, type: :controller do
   before do
     # Mock token generation
     allow(JwtService).to receive(:encode).and_return('mock_token')
+    allow(JwtService).to receive(:decode).and_return({ user_id: wallet_source.owner_id })
     request.headers['Authorization'] = "Bearer mock_token"
   end
 
