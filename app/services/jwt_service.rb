@@ -10,6 +10,6 @@ class JwtService
     decoded = JWT.decode(token, SECRET_KEY)[0]
     HashWithIndifferentAccess.new(decoded)
   rescue JWT::DecodeError
-    nil
+    raise JWT::DecodeError, "Invalid token"
   end
 end
